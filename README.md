@@ -1,0 +1,103 @@
+<div align="center">
+
+<img src="public/mascot.png" width="120" alt="DevTier mascot">
+
+# DevTier
+
+**your GitHub, rated out of 99** ⚽
+
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=20&duration=2600&pause=800&color=39D353&center=true&vCenter=true&width=660&height=42&lines=Turn+any+GitHub+profile+into+a+FIFA-style+card;Scored+live+from+real+commits%2C+stars+%26+PRs;Embed+it+anywhere+%E2%80%94+it+updates+itself" alt="Turn any GitHub profile into a player card, scored live, embeddable anywhere">
+
+<br/><br/>
+
+<a href="https://devtier.com/ColeMurray"><img src="public/ColeMurray.png" width="180" alt="DevTier card"></a>
+<a href="https://devtier.com/NeptuneHub"><img src="public/NeptuneHub.png" width="180" alt="DevTier card"></a>
+<a href="https://devtier.com/hrydgard"><img src="public/hrydgard.png" width="180" alt="DevTier card"></a>
+<a href="https://devtier.com/mvanhorn"><img src="public/mvanhorn.png" width="180" alt="DevTier card"></a>
+<a href="https://devtier.com/binaricat"><img src="public/binaricat.png" width="180" alt="DevTier card"></a>
+
+<br/><br/>
+
+</div>
+
+<br/>
+
+## 🃏 &nbsp;Embed your card
+
+Your card lives at a URL. Drop it in your profile README, your portfolio, anywhere — and it **re-scouts itself** as your stats change.
+
+```md
+[![My DevTier card](https://devtier.com/YOUR_USERNAME.png)](https://devtier.com/YOUR_USERNAME)
+```
+
+| | |
+|---|---|
+| **`devtier.com/<username>.png`** | your card, as a live image |
+| **`devtier.com/<username>`** | the full scout report |
+| **`?country=XX`** | override the flag (e.g. `?country=DZ`) |
+
+<br/>
+
+## ⚙️ &nbsp;How the scouting works
+
+Six signals from a live GitHub profile, each mapped to a football stat — read straight from GitHub's GraphQL API. No surveys, no self-reporting. Just the commits.
+
+| | Stat | Scouted from |
+|:--:|:--|:--|
+| **PAC** | Pace | Commits in the last year |
+| **SHO** | Shooting | Stars earned across repos |
+| **PAS** | Passing | Pull requests + followers |
+| **DRI** | Dribbling | Language diversity |
+| **DEF** | Defending | Reviews + issues |
+| **PHY** | Physical | Lifetime contributions |
+
+Your **overall** is the headline. Raw stats cap at **88** — the 90s are a legacy gate, earned with years and influence, so one heroic year won't crown you an Icon. Your **position** and **archetype** are read from your stat shape: a shooting spike scouts a poacher up top, a defending-and-passing lean scouts a deep playmaker.
+
+Every card walks out in a finish:
+
+<div align="center">
+
+![Bronze](https://img.shields.io/badge/BRONZE-%E2%89%A464-CD7F32?style=flat-square&labelColor=2A1A0C)
+![Silver](https://img.shields.io/badge/SILVER-65--74-AAB2BD?style=flat-square&labelColor=262B33)
+![Gold](https://img.shields.io/badge/GOLD-75--84-E6B422?style=flat-square&labelColor=3A2806)
+![In-Form](https://img.shields.io/badge/IN--FORM-spike-E03E52?style=flat-square&labelColor=4A0A14)
+![TOTY](https://img.shields.io/badge/TOTY-85--89-3B7AFF?style=flat-square&labelColor=10254F)
+![Icon](https://img.shields.io/badge/ICON-90%2B-F3D688?style=flat-square&labelColor=2A1A45)
+
+</div>
+
+<br/>
+
+## 🛠️ &nbsp;Local Development Setup
+
+To run DevTier locally:
+
+1. **Clone the repository and install dependencies:**
+   ```bash
+   npm install
+   ```
+
+2. **Configure environment variables:**
+   Copy the example environment template to a local configuration file:
+   ```bash
+   copy .env.example .env.local
+   ```
+   Open `.env.local` and set a valid **`GITHUB_TOKEN`** (GitHub Personal Access Token). This is required to allow the server to query the GitHub GraphQL API.
+
+3. **Start the development server:**
+   ```bash
+   npm run dev
+   ```
+   Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+<br/>
+
+<div align="center">
+
+**Built with** Next.js · TypeScript · Tailwind · Redis
+
+**[devtier.com](https://devtier.com)** &nbsp;·&nbsp; scout someone today
+
+<img src="https://capsule-render.vercel.app/api?type=waving&height=90&color=0:39d353,100:006d32&section=footer" alt="" width="100%">
+
+</div>

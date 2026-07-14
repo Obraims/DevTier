@@ -1,0 +1,91 @@
+import type { Metadata, Viewport } from "next";
+import { Bebas_Neue, Inter, JetBrains_Mono } from "next/font/google";
+import localFont from "next/font/local";
+import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
+
+// Display — ultra-condensed all-caps for the WC26 "tournament" impact.
+const display = Bebas_Neue({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-bebas",
+});
+
+// UI / body — clean and legible at small sizes.
+const sans = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+});
+
+// The "@handle" / dev signal.
+const mono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-jetbrains",
+});
+
+// FUT card fonts (DINPro suite) ported from the Python generator — used by the
+// player card overlays. (Champions-*.otf/ttf are also bundled in ./fonts for
+// future use but not wired here.)
+const dinCond = localFont({ src: "./fonts/DINPro-Cond.otf", variable: "--font-din-cond", display: "swap" });
+const dinBold = localFont({ src: "./fonts/DINPro-CondBold.otf", variable: "--font-din-bold", display: "swap" });
+const dinMedium = localFont({ src: "./fonts/DINPro-CondMedium.otf", variable: "--font-din-medium", display: "swap" });
+
+const TITLE = "DevTier — your GitHub, rated out of 99";
+const DESCRIPTION =
+  "Rate any GitHub profile out of 99 as a FIFA-Ultimate-Team-style player card, scored from real commits, stars and contributions. Get scouted and share your card.";
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://dev-tier.vercel.app"),
+  title: TITLE,
+  description: DESCRIPTION,
+  keywords: [
+    "GitHub profile card",
+    "rate my GitHub",
+    "GitHub stats",
+    "developer trading card",
+    "FUT card",
+    "GitHub rating",
+    "World Cup",
+    "DevTier",
+  ],
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: TITLE,
+    description: DESCRIPTION,
+    url: "https://dev-tier.vercel.app",
+    siteName: "DevTier",
+    type: "website",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "DevTier — your GitHub, rated out of 99",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description: DESCRIPTION,
+    images: ["/opengraph-image"],
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#02001e",
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html
+      lang="en"
+      className={`${display.variable} ${sans.variable} ${mono.variable} ${dinCond.variable} ${dinBold.variable} ${dinMedium.variable} antialiased`}
+    >
+      <body>
+        {children}
+        <Analytics />
+      </body>
+    </html>
+  );
+}
